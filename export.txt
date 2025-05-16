@@ -1,0 +1,13 @@
+101,Alfred,Alexander,NV,$1,500.00,$900.00
+102,Cynthia,Chase,CA,$900.00,$1,200.00
+103,Ernie,Ellis,CA,$3,500.00,$4,000.00
+104,Hubert,Hughes,CA,$4,500.00,$2,000.00
+105,Kathryn,King,NV,$850.00,$500.00
+106,Nicholas,Niles,NV,$500.00,$400.00
+107,Patricia,Pullman,AZ,$1,000.00,$1,100.00
+108,Sally,Smith,NV,$1,000.00,$1,100.00
+109,Shelly,Smith,NV,$2,500.00,$0.00
+110,Terrance,Thomson,CA,$5,000.00,$6,000.00
+111,Valarie,Vega,AZ,$0.00,$3,000.00
+112,Xavier,Xerox,AZ,$600.00,$250.00
+223,JOE,THOMAS,CA,$4,444.00,$44.00

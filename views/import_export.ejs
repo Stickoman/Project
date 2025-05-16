@@ -1,0 +1,18 @@
+
+<h3>Import Customers</h3>
+<form method="POST" action="/import" enctype="multipart/form-data">
+    <input type="file" name="importFile" class="form-control" required>
+    <button type="submit" class="btn btn-primary mt-2">Upload & Import</button>
+</form>
+
+
+<% if (result) { %>
+    <div class="alert alert-info mt-3"><%= result %></div>
+<% } %>
+
+
+<hr />
+
+<h3>Export Customers</h3>
+<p>Click the button below to export all customers to a downloadable `.txt` file.</p>
+<a href="/export" class="btn btn-info">Download Export File</a>

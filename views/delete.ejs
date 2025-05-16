@@ -1,0 +1,14 @@
+
+<h3>Confirm Deletion</h3>
+<p>Are you sure you want to delete the following customer?</p>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>ID:</strong> <%= customer.cusid %></li>
+    <li class="list-group-item"><strong>Name:</strong> <%= customer.cusfname %> <%= customer.cuslname %></li>
+    <li class="list-group-item"> <strong>State: </strong><%= customer.cusstate %></li>
+</ul>
+
+<form method="POST" action="/customers/<%= customer.cusid %>/delete">
+    <button type="submit" class="btn btn-danger">Confirm Delete</button>
+    <a href="/customers" class="btn btn-secondary">Cancel</a>
+</form>

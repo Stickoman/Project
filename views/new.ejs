@@ -1,0 +1,46 @@
+<div class="container">
+    <h3 class="mb-4">Add New Customer</h3>
+
+    <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if (success) { %>
+        <div class="alert alert-success">Customer successfully added!</div>
+    <% } %>
+
+    <form method="POST" action="/customers/new">
+        <div class="mb-3">
+            <label for="id" class="form-label">Customer ID</label>
+            <input type="number" name="id" id="id" class="form-control" required value="<%= data.id || '' %>">
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" name="firstname" id="firstname" class="form-control" required value="<%= data.firstname || '' %>">
+            </div>
+            <div class="col">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" required value="<%= data.lastname || '' %>">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="state" class="form-label">State (2 letters)</label>
+                <input type="text" name="state" id="state" class="form-control" maxlength="2" pattern="[A-Za-z]{2}" value="<%= data.state || '' %>">
+            </div>
+            <div class="col">
+                <label for="salesytd" class="form-label">Sales YTD</label>
+                <input type="number" name="salesytd" id="salesytd" class="form-control" step="0.01" value="<%= data.salesytd || '' %>">
+            </div>
+            <div class="col">
+                <label for="salesprev" class="form-label">Previous Year Sales</label>
+                <input type="number" name="salesprev" id="salesprev" class="form-control" step="0.01" value="<%= data.salesprev || '' %>">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Add Customer</button>
+        <a href="/customers" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>

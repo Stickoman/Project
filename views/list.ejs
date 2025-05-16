@@ -1,0 +1,79 @@
+
+<div class="container">
+    <h2 class="mb-4">Customer Management</h2>
+
+    <form method="POST" action="/customers/search" class="mb-4">
+        <div class="row g-2">
+            <div class="col-md-2">
+                <label class="form-label">ID</label>
+                <input type="number" name="id" class="form-control" value="<%= search?.id || '' %>">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">First Name</label>
+                <input type="text" name="firstname" class="form-control" value="<%= search?.firstname || '' %>">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Last Name</label>
+                <input type="text" name="lastname" class="form-control" value="<%= search?.lastname || '' %>">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">State</label>
+                <input type="text" name="state" class="form-control" maxlength="2" pattern="[A-Za-z]{2}"
+                       value="<%= search?.state || '' %>">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Sales YTD</label>
+                <input type="number" name="salesytd" class="form-control" value="<%= search?.salesytd || '' %>">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Previous Sales</label>
+                <input type="number" name="salesprev" class="form-control" value="<%= search?.salesprev || '' %>">
+            </div>
+        </div>
+        <div class="mt-3 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Find</button>
+            <a href="/customers" class="btn btn-secondary">Reset</a>
+        </div>
+    </form>
+
+    <% if (message) { %>
+        <div class="alert alert-warning"><%= message %></div>
+    <% } %>
+
+    <% if (customers && customers.length > 0) { %>
+        <div class="d-flex justify-content-between mb-2">
+            <h5>Total Records: <span class="badge bg-info text-dark"><%= total %></span></h5>
+        </div>
+
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>State</th>
+                <th>Sales YTD</th>
+                <th>Prev Sales Sales</th>
+                <th><a href="/customers/new" class="btn btn-success ms-auto">Create Customer</a></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% customers.forEach(customer => { %>
+                <tr>
+                    <td><%= customer.cusid %></td>
+                    <td><%= customer.cusfname %></td>
+                    <td><%= customer.cuslname %></td>
+                    <td><%= customer.cusstate %></td>
+                    <td><%= customer.cussalesytd %></td>
+                    <td><%= customer.cussalesprev %></td>
+                    <td>
+                        <a href="/customers/<%= customer.cusid %>/edit" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="/customers/<%= customer.cusid %>/delete"
+                           class="btn btn-sm btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</div>

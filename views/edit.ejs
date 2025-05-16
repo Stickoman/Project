@@ -1,0 +1,47 @@
+
+<div class="container">
+    <h3 class="mb-4">Edit Customer #<%= customer.cusid %></h3>
+
+    <% if (error) { %>
+        <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+    <% if (success) { %>
+        <div class="alert alert-success">Customer updated successfully!</div>
+    <% } %>
+
+    <form method="POST" action="/customers/<%= customer.cusid %>/edit">
+        <div class="mb-3">
+            <label for="id" class="form-label">Customer ID</label>
+            <input type="text" class="form-control" id="id" value="<%= customer.cusid %>" readonly>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" name="firstname" id="firstname" class="form-control" required value="<%= customer.cusfname %>">
+            </div>
+            <div class="col">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" name="lastname" id="lastname" class="form-control" required value="<%= customer.cuslname %>">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <label for="state" class="form-label">State (2 letters)</label>
+                <input type="text" name="state" id="state" class="form-control" maxlength="2" pattern="[A-Za-z]{2}" value="<%= customer.cusstate %>">
+            </div>
+            <div class="col">
+                <label for="salesytd" class="form-label">Sales YTD</label>
+                <input name="salesytd" id="salesytd" class="form-control" step="0.01" value="<%= customer.cussalesytd %>">
+            </div>
+            <div class="col">
+                <label for="salesprev" class="form-label">Previous Year Sales</label>
+                <input name="salesprev" id="salesprev" class="form-control" step="0.01" value="<%= customer.cussalesprev %>">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="/customers" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
